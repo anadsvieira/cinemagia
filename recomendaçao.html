@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+ <html>
+	 <head>
+		 <title>Cinemagia</title>
+		 <meta charset="utf-8">
+		 <link rel="icon" type="image/jpg" href="icones9/icone.png">
+		 <link href="cinema.css" rel="stylesheet" type="text/css"/>
+		 <link rel="preconnect" href="https://fonts.googleapis.com">
+		 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+		 <link href="https://fonts.googleapis.com/css2?family=Geologica:wght@100&display=swap" rel="stylesheet">
+         <link rel="preconnect" href="https://fonts.googleapis.com">
+         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+         <link href="https://fonts.googleapis.com/css2?family=Merriweather&display=swap" rel="stylesheet">
+         <link rel="preconnect" href="https://fonts.googleapis.com">
+         <link rel="preconnect" href="https://fonts.googleapis.com">
+		 <link rel="preconnect" href="https://fonts.googleapis.com">
+      </head>
+	      <body>
+			  <div class="menu">
+                  <div class="center">
+					 <ul>
+						<li><a href="index.html" id="home">Home</a></li>
+						<li> <a href="recomendaçao.html">Recomendação</a></li>
+						
+					 </ul>
+				  </div>
+	          </div>
+              <div class="text2">
+			<p>Digite sua idade para a recomendação:</p>
+        </div> 
+        <center>
+          <input type="number" id="idade" class="idade">
+          <button onclick="idade()" class="idade">Enviar</button>
+          <p id="mensagem"></p>
+          <br><br><br><br><br>
+          <div id="carousel">
+            <img src="icones9/g1.jpeg" alt="Image 1" class="carousel-image">
+            <img src="icones9/g2.jpeg" alt="Image 2" style="display:none;" class="carousel-image">
+            <img src="icones9/g3.jpeg" alt="Image 3" style="display:none;" class="carousel-image">
+            <img src="icones9/g6.jpg" alt="Image 4" style="display:none;" class="carousel-image">
+          </div>
+          <br>
+          <button onclick="antes()" id="antes" class="botaoav">Avançar</button>
+          <button onclick="depois()" id="depois" class="botaovol">Voltar</button>
+        </center>
+        <br><br><br>
+        <script>
+            function idade() {
+                var idade = document.getElementById("idade").value;
+                var mensagem = document.getElementById("mensagem");
+                
+    
+                if (idade >= 1 && idade <= 4) {
+                    mensagem.innerHTML = "Assista: Peppa Pig, Masha e o Urso, Pocoyo e Mundo Bita. ";
+                } else if (idade >= 5 && idade <= 8) {
+                    mensagem.innerHTML = "Assista: Patrulha Canina, Puppy Dog Pals, Up Altas Aventuras e PJ Masks.";
+                } else if (idade >= 9 && idade <= 11) {
+                    mensagem.innerHTML = "Assista: Divertida Mente, GreenHouse Academy, Full House e alexa e katie.";
+                } else if (idade >= 12 && idade <= 14) {
+                    mensagem.innerHTML = "Assista: Gravity Falls, A Viagem de Chihiro, ANNE with an E, Wandinha e Desventuras em Série.";
+                } else if (idade >= 15 && idade < 18) {
+                    mensagem.innerHTML = "Assista: True beauty, Stranger Things, Loki, Para Todos os Garotos que Já Amei e Jogos Vorazes.";
+                } else if (idade >= 18 && idade <= 25) {
+                    mensagem.innerHTML = "Assista: Tomorrow, Deadpool, Titanic, Piratas do Caribe, Oppenheimer e The Witcher.";
+                } else {
+                    mensagem.innerHTML = "Assista: Clube da luta, The Office, Pousando no Amor, Vikings e The Walking Dead.";
+                }
+    
+            }
+
+                 current = 0;
+                function antes() {
+                    
+                let images = document.getElementById("carousel").children;
+                    for (let i = 0; i < images.length; i++) {
+                        images[i].style.display = "none";
+                    }
+                    current = (current + 1) % images.length;
+                    images[current].style.display = "block";
+                    }
+
+                function depois() {
+                    
+                    let images = document.getElementById("carousel").children;
+                    for (let i = 0; i < images.length; i++) {
+                    images[i].style.display = "none";
+                    }
+                    current = (current - 1 + images.length) % images.length;
+                    images[current].style.display = "block";
+                }
+        
+        </script>
+        </body>
+ </html>
